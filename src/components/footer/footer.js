@@ -1,55 +1,63 @@
-// import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
+import { Divider, Box } from "@mui/material";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Typography, styled } from "@mui/material";
+import SocialIcons from "../navBar/hamburger/SocialIcons";
+
 export default function Footer() {
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <AppBar
-      position="absolute"
-      sx={{
-        top: "auto",
-        bottom: 0,
-        height: 112,
-        background: theme.palette.primary.footerGradient,
-        minWidth: "200px"
-      }}
-    >
-      <Toolbar
-        sx={{
-          height: "100%",
-          mx: "auto"
-        }}
-      >
-        <Box>
-          <Typography variant="subtitle2" component="div">
-            Made with{" "}
-            <FavoriteOutlinedIcon
-              fontSize="small"
-              sx={{
-                color: "red"
-              }}
-            />{" "}
-            by Gerardo Solis
-          </Typography>
-        </Box>
-      </Toolbar>
-      <Box
-        sx={{
-          position: "absolute",
-          right: isMatch ? "10%" : 0,
-          minWidth: "200px",
-          mt: "10px",
-          mr: isMatch ? "auto" : "15px"
-        }}
-      >
-        <Typography variant="subtitle2" component="div">
-          Pikachu Hero Image Photo by Lia on Unsplash
-        </Typography>
-      </Box>
-    </AppBar>
+    <FooterWrapper component="footer">
+      <StyledDivider color="#BCBCBC" />
+      <FooterContentContainer>
+        <SocialIcons footer={true} />
+        <TextWrapper>
+          <StyledText component="p">Made with</StyledText>
+          <StyledFavoriteOutlinedIcon fontSize="small" />
+          <StyledText component="p">by Gerardo Solis</StyledText>
+        </TextWrapper>
+      </FooterContentContainer>
+      <StyledDivider color="#BCBCBC" />
+    </FooterWrapper>
   );
 }
+const TextWrapper = styled(Box)(() => ({
+  display: "flex",
+  alignItems: "center"
+}));
+
+const FooterWrapper = styled(Box)(() => ({
+  backgroundColor: "primary.main",
+  minWidth: "375px",
+  display: "flex",
+  overflow: "hidden",
+  alignItems: "center",
+  justifyContent: "center",
+  paddingBottom: "1em"
+}));
+
+const FooterContentContainer = styled(Box)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center"
+}));
+
+const StyledFavoriteOutlinedIcon = styled(FavoriteOutlinedIcon)(() => ({
+  color: "red",
+  marginLeft: "4px ",
+  marginRight: "4px "
+}));
+
+const StyledText = styled(Typography)(() => ({
+  color: "#BCBCBC"
+}));
+
+const StyledDivider = styled(Divider)(({ theme }) => ({
+  [theme.breakpoints.up("sm")]: {
+    width: "30%"
+  },
+  [theme.breakpoints.down("sm")]: {
+    width: "15%"
+  },
+  height: "2px",
+  marginBottom: "1em",
+  marginTop: "1em"
+}));

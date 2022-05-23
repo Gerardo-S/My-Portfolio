@@ -1,11 +1,23 @@
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material";
+import { animated, useSpring } from "react-spring";
 
-export default function PageButton({ btnText }) {
+export default function AnimatedPageButton({ btnText, pageLoadAnimation }) {
+  const animateButtonOpacity = useSpring({
+    config: { tension: 90 },
+    from: { bottom: -250, opacity: 0 },
+    bottom: pageLoadAnimation ? 0 : -350,
+    opacity: pageLoadAnimation ? 1 : 0
+  });
   return (
-    <StyledButton size="large" color="secondary" variant="outlined">
+    <AnimatePageButton
+      size="large"
+      color="secondary"
+      variant="outlined"
+      style={animateButtonOpacity}
+    >
       {btnText}
-    </StyledButton>
+    </AnimatePageButton>
   );
 }
 
@@ -38,3 +50,5 @@ const StyledButton = styled(Button)(({ theme }) => ({
     textShadow: "none"
   }
 }));
+
+const AnimatePageButton = animated(StyledButton);

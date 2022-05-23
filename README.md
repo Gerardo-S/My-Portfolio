@@ -1,11 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">url-here.com</h1>
 
-# PokeBase
+<p align="center"> V2 Source Code of My Personal Site. Built using Next.js and hosted with Vercel</p>
+<p align="center"> Previous Iteration: <a href="https://github.com/Gerardo-S/gerardo-s.github.io">v1</a></p>
 
-## Description
+##### Attributions:
 
-This is an unofficial pokemon application
-
-## Deployed Link
-
-<a href="https://poke-base.vercel.app/">https://poke-base.vercel.app/</a>
+<p>Design inspirations obtained from <a href="https://brittanychiang.com" target="_blank">brittanychiang.com</a>, <a href="https://www.suhasjagannath.com/" target="_blank">suhasjagannath.com </a>, and <a href="https://www.godiego.me/" target="_blank">godiego.me</a>. Check their sites out! </p>
