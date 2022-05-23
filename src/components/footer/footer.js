@@ -1,7 +1,7 @@
 import { Divider, Box } from "@mui/material";
 import FavoriteOutlinedIcon from "@mui/icons-material/FavoriteOutlined";
 import { Typography, styled } from "@mui/material";
-import SocialIcons from "../navBar/hamburger/SocialIcons";
+import SocialIcons from "../nav/hamburger/SocialIcons";
 
 export default function Footer() {
   return (
