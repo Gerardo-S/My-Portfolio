@@ -23,9 +23,11 @@ export default function MenuList() {
   useEffect(() => {
     if (checked) {
       window.document.body.style.overflow = "hidden";
+      window.document.body.style.touchAction = "none";
     }
     return () => {
       window.document.body.style.overflow = "";
+      window.document.body.style.touchAction = "";
     };
   }, [checked]);
 

@@ -41,7 +41,6 @@ const NavBarContainer = styled(Box)(() => ({
 
 const NavBarUnderFill = styled(Box)(() => ({
   width: "100%",
-
   backgroundColor: "white",
   height: "2px",
   transformOrigin: "center",
