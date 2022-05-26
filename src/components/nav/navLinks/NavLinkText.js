@@ -4,7 +4,12 @@ import { navLinks } from "../constants";
 import { animated, useTrail } from "react-spring";
 import { useEffect, useState } from "react";
 
-export default function NavLinkText({ marginBottom, mobileMenuList }) {
+export default function NavLinkText({
+  marginBottom,
+  mobileMenuList,
+  handleMenuExitOnScroll,
+  toggleAsideMenu
+}) {
   const navText = navLinks.navItems;
   const [pageLoadAnimation, setPageLoadAnimation] = useState(false);
 
@@ -15,10 +20,9 @@ export default function NavLinkText({ marginBottom, mobileMenuList }) {
 
     return () => clearTimeout(animationDelay);
   }, []);
-
+  const data = "This is data from Child Component to the Parent Component.";
   const Trail = ({ pageLoadAnimation, children }) => {
     const items = children;
-
     const trail = useTrail(items.length, {
       from: { opacity: 0, height: 100 },
       opacity: pageLoadAnimation ? 1 : 0,
@@ -27,18 +31,27 @@ export default function NavLinkText({ marginBottom, mobileMenuList }) {
 
     return (
       <>
-        {trail.map(({ height, opacity }, index) => (
-          <AnimatedStyledLink
-            href={`/${items[index].title}`}
-            underline="none"
-            marginBottom={marginBottom}
-            key={index}
-            style={{ opacity, height }}
-          >
-            <Box sx={{ mr: 2 }} component={items[index].Icon} />
-            {items[index].title}
-          </AnimatedStyledLink>
-        ))}
+        {trail.map(({ height, opacity }, index) => {
+          const title = items[index].title;
+          const sectionID = `#${items[index].title.toLowerCase()}-section`;
+          return (
+            <AnimatedStyledLink
+              onClick={() => {
+                mobileMenuList
+                  ? handleMenuExitOnScroll(!toggleAsideMenu)
+                  : null;
+              }}
+              href={sectionID}
+              underline="none"
+              marginBottom={marginBottom}
+              key={index}
+              style={{ opacity, height }}
+            >
+              <Box sx={{ mr: 2 }} component={items[index].Icon} />
+              {title}
+            </AnimatedStyledLink>
+          );
+        })}
       </>
     );
   };

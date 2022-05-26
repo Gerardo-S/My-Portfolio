@@ -3,7 +3,7 @@ import TechBadge from "../../components/TechBadge";
 
 export default function BadgeList() {
   return (
-    <SectionContainer component="section">
+    <SectionContainer component="section" id="skills-section">
       <StyledSubTitle variant="h3" component="h2">
         Technologies I've Worked With
       </StyledSubTitle>

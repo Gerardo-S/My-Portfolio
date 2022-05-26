@@ -3,7 +3,7 @@ import ProjectCard from "../../components/ProjectCard";
 
 export default function Projects() {
   return (
-    <SectionContainer component="section">
+    <SectionContainer component="section" id="projects-section">
       <StyledSubTitle variant="h3" component="h2">
         Some of My Work
       </StyledSubTitle>
@@ -49,7 +49,7 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
 }));
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-  padding: "100px 0 200px ",
+  padding: "25px 0 100px ",
   paddingLeft: "10px",
   paddingRight: "10px"
 }));

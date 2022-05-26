@@ -4,7 +4,7 @@ import JobItem from "../../components/workExperience/JobItem";
 
 export default function Experience() {
   return (
-    <SectionContainer component="section">
+    <SectionContainer component="section" id="experience-section">
       <StyledSubTitle variant="h3" component="h2">
         Experience
       </StyledSubTitle>
@@ -36,7 +36,7 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
 }));
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-  padding: "200px 0 200px ",
+  padding: "50px 0 200px ",
   paddingLeft: "10px",
   paddingRight: "10px"
 }));
