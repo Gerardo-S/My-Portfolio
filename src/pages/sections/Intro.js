@@ -67,7 +67,7 @@ const IntroContainer = styled(Container)(({ theme: { breakpoints } }) => ({
     paddingTop: "100px"
   },
   boxSizing: "border-box",
-  paddingBottom: "100px",
+  paddingBottom: "200px",
   width: "100%"
 }));
 const TypographyBox = styled(Box)(() => ({

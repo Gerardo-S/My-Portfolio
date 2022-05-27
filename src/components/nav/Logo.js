@@ -19,14 +19,13 @@ export default function Logo() {
   return (
     <AnimateLogoFade style={animationStyles} className="logo-wrapper">
       <Divider className="logo" />
-      <StyledLink className="logo">
-        <Image
-          src={LogoImage}
-          alt={navLinks.navHomeLogoAlt}
-          width={100}
-          height={100}
-        />
-      </StyledLink>
+      <StyledImage
+        className="logo"
+        src={LogoImage}
+        alt={navLinks.navHomeLogoAlt}
+        width={100}
+        height={100}
+      />
       <Divider className="logo" />
     </AnimateLogoFade>
   );
@@ -38,6 +37,7 @@ const LogoWrapper = styled(Box)(({ className, ...props }) => ({
   paddingLeft: "2px",
   flexGrow: 1,
   pointerEvents: "none",
+  paddingBottom: ".5rem",
   "&:hover .logo:not(:hover)": {
     filter: "invert(50%)"
   }
@@ -54,9 +54,8 @@ const Divider = styled(Paper)(({ className, ...props }) => ({
   pointerEvents: "auto"
 }));
 
-const StyledLink = styled(Link)(({ className, ...props }) => ({
+const StyledImage = styled(Image)(({ className, ...props }) => ({
   filter: "grayscale(100%)",
-  transition: "500ms",
   pointerEvents: "auto"
 }));
 

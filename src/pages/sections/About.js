@@ -13,7 +13,7 @@ const mthreeLink = "https://www.mthree.com/about/";
 
 export default function About() {
   return (
-    <SectionContainer component="section">
+    <SectionContainer component="section" id="about-section">
       <StyledSubTitle variant="h3" component="h2">
         About Me
       </StyledSubTitle>
@@ -79,7 +79,7 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
 }));
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-  padding: "200px 0 200px ",
+  padding: "190px 0 200px ",
   paddingLeft: "10px",
   paddingRight: "10px"
 }));

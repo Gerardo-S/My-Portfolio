@@ -3,7 +3,11 @@ import { Divider } from "@mui/material";
 import NavLinkText from "../navLinks/NavLinkText";
 import SocialIcons from "./SocialIcons";
 
-export default function AsideSocialLinks({ checked, containerRef }) {
+export default function AsideSocialLinks({
+  checked,
+  containerRef,
+  handleMenuExitOnScroll
+}) {
   return (
     <AsideContentWrapper>
       <Slide direction="left" in={checked} container={containerRef}>
@@ -14,7 +18,12 @@ export default function AsideSocialLinks({ checked, containerRef }) {
             }}
           >
             <StyledAsideSocialContainer>
-              <NavLinkText mobileMenuList={true} marginBottom="1.5em" />
+              <NavLinkText
+                mobileMenuList={true}
+                toggleAsideMenu={checked}
+                marginBottom="1.5em"
+                handleMenuExitOnScroll={handleMenuExitOnScroll}
+              />
               <StyledDivider orientation="vertical" color="white" />
               <SocialIcons />
             </StyledAsideSocialContainer>

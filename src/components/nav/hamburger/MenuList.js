@@ -39,6 +39,7 @@ export default function MenuList() {
             color="#64ffda"
             easing="ease-in"
             onToggle={openMenu}
+            toggled={checked}
             rounded
             hideOutline={false}
           />
@@ -46,6 +47,7 @@ export default function MenuList() {
         <AsideSocialLinks
           checked={checked}
           containerRef={containerRef.current}
+          handleMenuExitOnScroll={openMenu}
         />
       </MenuWrapper>
       <BlurContainer sx={{ display: checked ? "block" : "none" }} />
