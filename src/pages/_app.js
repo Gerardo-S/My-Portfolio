@@ -20,6 +20,7 @@ export default function MyApp(props) {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <title>Gerardo Solis</title>
         <meta name="description" content="My Portfolio" />
+
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -40,7 +41,7 @@ export default function MyApp(props) {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#0a192f" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
