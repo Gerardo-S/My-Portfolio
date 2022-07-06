@@ -6,7 +6,7 @@ import BadgeList from "./sections/BadgeList";
 import Contacts from "./sections/Contacts";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
-import getRepos from "./api/gitHubAPI";
+import getRepos from "../lib/api/gitHubAPI";
 import projectImages from "../components/assetImages";
 
 const reposToDisplay = [

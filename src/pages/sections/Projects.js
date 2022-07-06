@@ -1,7 +1,6 @@
 import { styled, Typography, Box, Grid } from "@mui/material";
 import ProjectCard from "../../components/ProjectCard";
 
-// const responsiveSize = [6, 6, 4, 4, 4];
 export default function Projects({ repos }) {
   return (
     <SectionContainer component="section" id="projects-section">
@@ -9,11 +8,18 @@ export default function Projects({ repos }) {
         Some of My Work
       </StyledSubTitle>
       <Grid container spacing={2}>
-        {repos.map((cardDetails) => (
-          <Grid item lg={cardDetails.size} md={12} sm={12} key={cardDetails.id}>
-            <ProjectCard cardDetails={cardDetails} />
-          </Grid>
-        ))}
+        {repos &&
+          repos.map((cardDetails) => (
+            <Grid
+              item
+              lg={cardDetails.size}
+              md={12}
+              sm={12}
+              key={cardDetails.id}
+            >
+              <ProjectCard cardDetails={cardDetails} />
+            </Grid>
+          ))}
       </Grid>
     </SectionContainer>
   );
