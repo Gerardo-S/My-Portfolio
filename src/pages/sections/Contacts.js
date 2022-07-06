@@ -12,7 +12,7 @@ export default function Contacts() {
       >
         Get In Touch
       </Typography>
-      <Typography component="p" variant="p" fontSize="16px" textAlign="center">
+      <Typography component="p" variant="p" fontSize="18px" textAlign="center">
         I am currently available for new opportunities. Send me an email and
         lets get started!
       </Typography>
@@ -23,7 +23,7 @@ export default function Contacts() {
         }}
       >
         <Link
-          href={"mailto: gerardon.solis@gmail.com?subject=WebDev"}
+          href={"mailto: hello@gerardosolis.dev"}
           underline="none"
           target="_blank"
           rel="noopener"
