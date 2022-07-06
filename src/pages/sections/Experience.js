@@ -1,4 +1,4 @@
-import { styled, Typography, Box } from "@mui/material";
+import { styled, Typography, Box, Container } from "@mui/material";
 
 import JobItem from "../../components/workExperience/JobItem";
 
@@ -25,7 +25,12 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
     [breakpoints.down("md")]: {
       width: "150px"
     },
-    width: "570px",
+    [breakpoints.up("sm")]: {
+      width: "310px"
+    },
+    [breakpoints.up("md")]: {
+      width: "460px"
+    },
     height: 1,
     borderRadius: 50,
     top: "-20px",
@@ -36,7 +41,7 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
 }));
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-  padding: "50px 0 200px ",
+  padding: "50px 0 100px ",
   paddingLeft: "10px",
   paddingRight: "10px"
 }));
