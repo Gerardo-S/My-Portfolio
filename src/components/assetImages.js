@@ -1,4 +1,4 @@
-import BracketExplore from "../assets/screenshots/BracketExplore-image.jpg";
+import BracketExplore from "../assets/screenshots/bracketExplore-image.jpg";
 import PokeBase from "../assets/screenshots/pokeBase-image.jpg";
 import Sset from "../assets/screenshots/sset-image.jpg";
 import GrandUniv from "../assets/screenshots/theGrandUniv-image.jpg";
