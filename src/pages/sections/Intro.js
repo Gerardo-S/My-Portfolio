@@ -19,6 +19,19 @@ export default function Intro() {
   const [pageLoadAnimation, setPageLoadAnimation] = useState(false);
   const theme = useTheme();
   const isMatch = useMediaQuery(theme.breakpoints.down("sm"));
+  const aboveSmallView = useMediaQuery(theme.breakpoints.down("md"));
+  const belowMediumView = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const findCorrectViewHeight = (isMatch, aboveSmallView, belowMediumView) => {
+    if (aboveSmallView && belowMediumView) {
+      return 125;
+    }
+    if (isMatch) {
+      return 200;
+    } else {
+      return 90;
+    }
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,7 +43,9 @@ export default function Intro() {
     const items = children;
     const trail = useTrail(items.length, {
       opacity: pageLoadAnimation ? 1 : 0,
-      height: pageLoadAnimation ? (isMatch ? 200 : 90) : 0,
+      height: pageLoadAnimation
+        ? findCorrectViewHeight(isMatch, aboveSmallView, belowMediumView)
+        : 0,
       from: { opacity: 0, height: 0 }
     });
 
@@ -62,7 +77,7 @@ export default function Intro() {
     </IntroContainer>
   );
 }
-const IntroContainer = styled(Container)(({ theme: { breakpoints } }) => ({
+const IntroContainer = styled(Box)(({ theme: { breakpoints } }) => ({
   [breakpoints.up("sm")]: {
     paddingTop: "100px"
   },

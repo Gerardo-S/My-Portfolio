@@ -7,7 +7,13 @@ export default function BadgeList() {
       <StyledSubTitle variant="h3" component="h2">
         Technologies I've Worked With
       </StyledSubTitle>
-      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center"
+        }}
+      >
         <TechBadge />
         <TechBadge />
         <TechBadge />
@@ -33,6 +39,17 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
       top: "-15px",
       textAlign: ""
     },
+    [breakpoints.down("md")]: {
+      width: "100%",
+      top: "15px",
+      right: "0px"
+    },
+    [breakpoints.up("md")]: {
+      width: "200px"
+    },
+    [breakpoints.up("lg")]: {
+      width: "400px"
+    },
     width: "125px",
     height: 1,
     borderRadius: 50,
@@ -44,7 +61,7 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
 }));
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-  padding: "200px 0 200px ",
+  padding: "100px 0 200px ",
   paddingLeft: "10px",
   paddingRight: "10px"
 }));

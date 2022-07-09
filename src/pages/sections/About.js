@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   styled,
   Typography,
@@ -7,10 +8,12 @@ import {
   Grid,
   Container
 } from "@mui/material";
+import ProfileImage from "../../assets/profile-image.PNG";
+
 const ucSanDiegoBootCamp =
   "https://extendedstudies.ucsd.edu/courses-and-programs/web-technologies-and-design";
 const mthreeLink = "https://www.mthree.com/about/";
-
+const LinkedIn = "https://www.linkedin.com/in/gerardo-a-solis/";
 export default function About() {
   return (
     <SectionContainer component="section" id="about-section">
@@ -18,7 +21,7 @@ export default function About() {
         About Me
       </StyledSubTitle>
 
-      <Grid container spacing={6}>
+      <Grid container>
         <Grid item sm={12} md={6} lg={8}>
           <Typography component="p" variant="p">
             Hello! My name is Gerardo and I enjoy the process of creating
@@ -48,10 +51,25 @@ export default function About() {
             education.
           </Typography>
         </Grid>
-        <Grid item sm={12} md={6} lg={4}>
-          <OutlineContainer>
-            <StyledAvatar alt="Remy Sharp" src="" />
-          </OutlineContainer>
+        <Grid item xs={12} sm={12} md={6} lg={4}>
+          <Link href={LinkedIn} target="_blank" rel="noopener">
+            <OutlineContainer>
+              <StyledAvatar>
+                <Image
+                  src={ProfileImage}
+                  blurDataURL={
+                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNME2Q6AgACnQE/KbNfPwAAAABJRU5ErkJggg=="
+                  }
+                  objectFit="cover"
+                  placeholder="blur"
+                  alt="place holder"
+                  height={310}
+                  width={200}
+                  quality={100}
+                />
+              </StyledAvatar>
+            </OutlineContainer>
+          </Link>
         </Grid>
       </Grid>
     </SectionContainer>
@@ -68,7 +86,12 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
     [breakpoints.down("md")]: {
       width: "150px"
     },
-    width: "580px",
+    [breakpoints.up("sm")]: {
+      width: "310px"
+    },
+    [breakpoints.up("md")]: {
+      width: "480px"
+    },
     height: 1,
     borderRadius: 50,
     top: "-20px",
@@ -79,9 +102,7 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
 }));
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-  padding: "190px 0 200px ",
-  paddingLeft: "10px",
-  paddingRight: "10px"
+  padding: "190px 0 250px "
 }));
 
 const OutlineContainer = styled(Container)(() => ({

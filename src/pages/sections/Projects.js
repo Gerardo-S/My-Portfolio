@@ -1,28 +1,25 @@
-import { styled, Typography, Box, Grid, Paper } from "@mui/material";
+import { styled, Typography, Box, Grid } from "@mui/material";
 import ProjectCard from "../../components/ProjectCard";
 
-export default function Projects() {
+export default function Projects({ repos }) {
   return (
     <SectionContainer component="section" id="projects-section">
       <StyledSubTitle variant="h3" component="h2">
         Some of My Work
       </StyledSubTitle>
       <Grid container spacing={2}>
-        <Grid item md={6}>
-          <ProjectCard />
-        </Grid>
-        <Grid item md={6}>
-          <ProjectCard />
-        </Grid>
-        <Grid item md={4}>
-          <ProjectCard />
-        </Grid>
-        <Grid item md={4}>
-          <ProjectCard />
-        </Grid>
-        <Grid item md={4}>
-          <ProjectCard />
-        </Grid>
+        {repos &&
+          repos.map((cardDetails) => (
+            <Grid
+              item
+              lg={cardDetails.size}
+              md={12}
+              sm={12}
+              key={cardDetails.id}
+            >
+              <ProjectCard cardDetails={cardDetails} />
+            </Grid>
+          ))}
       </Grid>
     </SectionContainer>
   );
@@ -38,7 +35,12 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
     [breakpoints.down("md")]: {
       width: "45px"
     },
-    width: "460px",
+    [breakpoints.up("sm")]: {
+      width: "200px"
+    },
+    [breakpoints.up("md")]: {
+      width: "360px"
+    },
     height: 1,
     borderRadius: 50,
     top: "-20px",
@@ -49,7 +51,7 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
 }));
 
 const SectionContainer = styled(Box)(({ theme }) => ({
-  padding: "25px 0 100px ",
+  padding: "25px 0 200px ",
   paddingLeft: "10px",
   paddingRight: "10px"
 }));

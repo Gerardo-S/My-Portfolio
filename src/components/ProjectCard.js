@@ -6,55 +6,87 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordion from "@mui/material/Accordion";
 import DoubleArrowSharpIcon from "@mui/icons-material/DoubleArrowSharp";
 import { IconGitHub, IconExternal } from "./icons";
-const ImageSrc =
-  "https://mui.com/static/images/cards/contemplative-reptile.jpg";
+import titleCase from "../lib/titleCase";
 
-export default function ProjectCard() {
+export default function ProjectCard({
+  cardDetails: {
+    title,
+    description,
+    technologies,
+    gitURL,
+    deployedURL,
+    screenshot
+  }
+}) {
+  const formatTitle = titleCase(title);
   return (
     <CardWrapper className="projectCard" elevation={5}>
       <Card className="projectCard" elevation={0}>
         <StyledCardActionArea>
-          <StyledProjectTitle className="cardTitle" component="h2">
-            Title
-          </StyledProjectTitle>
-          <CardMedia>
-            <Box sx={{ position: "relative", width: "100%", height: "250px" }}>
-              <Image
-                src={ImageSrc}
-                blurDataURL={ImageSrc}
-                layout="fill"
-                objectFit="cover"
-                placeholder="blur"
-                alt="place holder"
-              />
-            </Box>
-          </CardMedia>
+          <Link href={deployedURL} target="_blank" rel="noopener">
+            <StyledProjectTitle className="cardTitle" component="h2">
+              {formatTitle}
+            </StyledProjectTitle>
+            <CardMedia>
+              <Box
+                sx={{
+                  position: "relative",
+                  width: "100%",
+                  height: "300px"
+                }}
+              >
+                <Image
+                  src={screenshot}
+                  blurDataURL={screenshot.blurDataURL}
+                  layout="fill"
+                  objectFit="cover"
+                  placeholder="blur"
+                  alt="place holder"
+                />
+              </Box>
+            </CardMedia>
+          </Link>
         </StyledCardActionArea>
         <Accordion>
           <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
             <Typography sx={{ fontSize: "14px" }}>View Description</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <DescriptionText>
-              Description will appear here: Lorem ipsum dolor sit amet,
-              consectetur adipiscing elit. In mattis blandit tortor, ut sagittis
-              massa feugiat a. Integer ligula sapien, rutrum vel lacus vel,
-              varius semper lorem. Donec venenatis erat et elit facilisis, sed
-              pharetra sapien venenatis. Ut pretium luctus velit, a rhoncus arcu
-              semper a.
-            </DescriptionText>
+            {title == "sset-website" ? (
+              <DescriptionText>
+                {description} Refactored to TypeScript and integrated netlify
+                cms.
+              </DescriptionText>
+            ) : (
+              <DescriptionText>{description}</DescriptionText>
+            )}
           </AccordionDetails>
         </Accordion>
       </Card>
 
       <CardFooter component="footer">
-        <Typography component="p" sx={{ color: "#8892b0 " }}>
-          technologies{" "}
-        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            width: "80%"
+          }}
+        >
+          {technologies.map((item, id) => (
+            <Typography
+              component="p"
+              key={id}
+              sx={{ color: "#8892b0 ", mr: "1em" }}
+            >
+              {item}
+            </Typography>
+          ))}
+        </Box>
+
         <Box>
           <StyledSocial
             sx={{ marginRight: 1 }}
-            href={"/"}
+            href={gitURL}
             underline="none"
             target="_blank"
             rel="noopener"
@@ -62,7 +94,7 @@ export default function ProjectCard() {
             {IconGitHub}
           </StyledSocial>
           <StyledSocial
-            href={"/"}
+            href={deployedURL}
             underline="none"
             target="_blank"
             rel="noopener"
@@ -76,7 +108,6 @@ export default function ProjectCard() {
 }
 
 const CardWrapper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(1),
   color: "white",
   transition: "transform 300ms",
   "&:hover,&:focus .projectCard:not(:hover)": {
@@ -100,7 +131,8 @@ const DescriptionText = styled(Typography)(() => ({
   color: "#C1BDDB"
 }));
 
-const CardFooter = styled(Box)(() => ({
+const CardFooter = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(0.5),
   display: "flex",
   justifyContent: "space-between",
   margin: ".5rem .5rem 0 0.5rem"
