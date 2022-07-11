@@ -1,26 +1,31 @@
-import { Typography } from "@mui/material";
+import { Typography, styled } from "@mui/material";
 
-export default function PositionLocationDetails() {
+export default function PositionLocationDetails({
+  location,
+  period,
+  technologies
+}) {
   return (
     <>
-      <Typography
-        sx={{ display: "inline" }}
-        component="span"
-        variant="body2"
-        color="#ffffffb3"
-      >
-        Location • Job Period
-      </Typography>
-      <Typography
-        component="span"
-        sx={{
-          color: "#8892b0 ",
-          fontSize: "small",
-          display: "block"
-        }}
-      >
-        technologies{" "}
-      </Typography>
+      <StyledPositionLocation component="span" variant="body2">
+        {location} • {period.start} - {period.end}
+      </StyledPositionLocation>
+      <br />
+      {technologies.map((item, index) => (
+        <StyledTechnologiesList key={index} component="span">
+          {item}{" "}
+        </StyledTechnologiesList>
+      ))}
     </>
   );
 }
+const StyledPositionLocation = styled(Typography)(() => ({
+  color: "#ffffffb3",
+  fontSize: "medium",
+  display: "inline"
+}));
+const StyledTechnologiesList = styled(Typography)(() => ({
+  color: "#8892b0 ",
+  fontSize: "small",
+  display: "inline"
+}));
