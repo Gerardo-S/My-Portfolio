@@ -1,6 +1,6 @@
-import { styled, Typography, Box, Container } from "@mui/material";
-
+import { styled, Typography, Box } from "@mui/material";
 import JobItem from "../../components/workExperience/JobItem";
+import JobContent from "../../jobContent";
 
 export default function Experience() {
   return (
@@ -8,9 +8,9 @@ export default function Experience() {
       <StyledSubTitle variant="h3" component="h2">
         Experience
       </StyledSubTitle>
-      <JobItem />
-      <JobItem />
-      <JobItem />
+      {JobContent.map((jobExp) => (
+        <JobItem key={jobExp.location} content={jobExp} />
+      ))}
     </SectionContainer>
   );
 }
@@ -40,7 +40,7 @@ const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
   }
 }));
 
-const SectionContainer = styled(Box)(({ theme }) => ({
+const SectionContainer = styled(Box)(() => ({
   padding: "50px 0 100px ",
   paddingLeft: "10px",
   paddingRight: "10px"

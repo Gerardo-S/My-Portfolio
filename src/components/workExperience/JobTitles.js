@@ -8,27 +8,38 @@ import {
 import PositionTitle from "./PositionTitle";
 import PositionLocationDetails from "./PositionLocationDetails";
 
-export default function JobTitles() {
+export default function JobTitles({
+  image,
+  title,
+  location,
+  url,
+  period,
+  technologies
+}) {
   return (
-    <List>
+    <List sx={{ padding: 0 }}>
       <ListItem alignItems="flex-start">
         <ListItemAvatar>
           <Avatar
             sx={{
-              backgroundColor: "purple",
-              width: 50,
-              height: 50,
+              width: 60,
+              height: 60,
               marginRight: 2
             }}
-          >
-            M
-          </Avatar>
+            src={image ? image.src : null}
+          />
         </ListItemAvatar>
 
         <ListItemText
           sx={{ color: "white" }}
-          primary={<PositionTitle />}
-          secondary={<PositionLocationDetails />}
+          primary={<PositionTitle title={title} url={url} />}
+          secondary={
+            <PositionLocationDetails
+              location={location}
+              period={period}
+              technologies={technologies}
+            />
+          }
         />
       </ListItem>
     </List>

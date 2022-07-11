@@ -1,17 +1,9 @@
 import { styled, Link } from "@mui/material";
 
-const ucSanDiegoBootCamp =
-  "https://extendedstudies.ucsd.edu/courses-and-programs/web-technologies-and-design";
-
-export default function PositionTitle() {
+export default function PositionTitle({ title, url }) {
   return (
-    <StyledLink
-      href={ucSanDiegoBootCamp}
-      underline="none"
-      target="_blank"
-      rel="noopener"
-    >
-      Position Title
+    <StyledLink href={url} underline="none" target="_blank" rel="noopener">
+      {title}
     </StyledLink>
   );
 }
@@ -19,6 +11,7 @@ export default function PositionTitle() {
 const StyledLink = styled(Link)(({ theme, classNames, ...props }) => ({
   color: "white",
   position: "relative",
+  fontSize: "large",
   transition: "color 300ms",
   "&:hover": {
     color: theme.palette.secondary.main

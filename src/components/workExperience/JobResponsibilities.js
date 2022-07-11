@@ -1,22 +1,23 @@
-import { ListItem, ListItemText, ListItemIcon } from "@mui/material";
+import { ListItem, ListItemText, ListItemIcon, Box } from "@mui/material";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 
-export default function JobResponsibilities() {
+export default function JobResponsibilities({ responsibilities }) {
   return (
     <ListItem>
-      <ListItemIcon sx={{ color: "secondary.main" }}>
-        <ArrowRightOutlinedIcon fontSize="medium" />
-      </ListItemIcon>
-      <ListItemText
-        primaryTypographyProps={{
-          fontSize: 15,
-          fontWeight: "medium",
-          lineHeight: "20px",
-          mb: "2px",
-          color: "#C1BDDB"
-        }}
-        primary="Job Duties"
-      />
+      <Box sx={{ display: "flex" }}>
+        <ListItemIcon sx={{ color: "secondary.main" }}>
+          <ArrowRightOutlinedIcon fontSize="medium" />
+        </ListItemIcon>
+        <ListItemText
+          primaryTypographyProps={{
+            fontSize: "medium",
+            fontWeight: "medium",
+            lineHeight: "20px",
+            color: "#C1BDDB"
+          }}
+          primary={responsibilities}
+        />
+      </Box>
     </ListItem>
   );
 }
