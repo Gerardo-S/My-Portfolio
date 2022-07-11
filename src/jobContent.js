@@ -1,6 +1,6 @@
-import WileyImage from "./assets/jobExp/wiley-edge.jpg";
-import RBCImage from "./assets/jobExp/rbc.jpg";
-import GLogo from "./assets/jobExp/G-Logo.png";
+import WileyImage from "./assets/jobThumbnail-image/wiley-edge.jpg";
+import RBCImage from "./assets/jobThumbnail-image/rbc.jpg";
+import GLogo from "./assets/jobThumbnail-image/G-Logo.png";
 
 const jobContent = [
   {
