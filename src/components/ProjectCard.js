@@ -48,7 +48,10 @@ export default function ProjectCard({
           </Link>
         </StyledCardActionArea>
         <Accordion>
-          <AccordionSummary aria-controls="panel1a-content" id="panel1a-header">
+          <AccordionSummary
+            aria-controls={`panel1a-content-${title}`}
+            id={`panel1a-header-${title}`}
+          >
             <Typography sx={{ fontSize: "14px" }}>View Description</Typography>
           </AccordionSummary>
           <AccordionDetails>

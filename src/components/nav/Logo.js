@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
-import { Link, Paper, styled } from "@mui/material";
-import LogoImage from "../../../public/images/G-Logo.png";
+import { Paper, styled } from "@mui/material";
+import LogoImage from "../../assets/jobThumbnail-image/G-Logo.png";
 import Image from "next/image";
 import { navLinks } from "./constants";
 import { useSpring, animated } from "react-spring";
@@ -23,8 +23,8 @@ export default function Logo() {
         className="logo"
         src={LogoImage}
         alt={navLinks.navHomeLogoAlt}
-        width={100}
-        height={100}
+        width={60}
+        height={60}
       />
       <Divider className="logo" />
     </AnimateLogoFade>
@@ -48,7 +48,7 @@ const Divider = styled(Paper)(({ className, ...props }) => ({
   backgroundColor: "#64ffda",
   width: "25px",
   height: "8px",
-  margin: 0,
+  margin: 5,
   padding: 0,
   transition: "500ms",
   pointerEvents: "auto"

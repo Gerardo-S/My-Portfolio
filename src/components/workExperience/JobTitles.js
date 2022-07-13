@@ -26,6 +26,7 @@ export default function JobTitles({
               height: 60,
               marginRight: 2
             }}
+            alt={location}
             src={image ? image.src : null}
           />
         </ListItemAvatar>

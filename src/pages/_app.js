@@ -17,9 +17,20 @@ export default function MyApp(props) {
     <CacheProvider value={emotionCache}>
       <Head>
         <title>Gerardo's Portfolio</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <title>Gerardo Solis</title>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <meta property="og:url" content="https://www.gerardosolis.dev/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Gerardo's Personal Website" />
+        <meta
+          property="og:image"
+          content="https://media-exp2.licdn.com/dms/image/D5635AQEwRngcTBty7Q/profile-framedphoto-shrink_800_800/0/1642548646639?e=1658361600&v=beta&t=SIiluu6kzQ6m3DWJzomve0l2sP2EeQybKOGZ7QbTPEY"
+        />
         <meta name="description" content="My Portfolio" />
+
+        <title>Gerardo Solis</title>
 
         <link
           rel="apple-touch-icon"
