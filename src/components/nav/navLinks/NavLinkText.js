@@ -46,6 +46,7 @@ export default function NavLinkText({
               marginBottom={marginBottom}
               key={index}
               style={{ opacity, height }}
+              aria-label="menu-nav-links"
             >
               <Box sx={{ mr: 2 }} component={items[index].Icon} />
               {title}
@@ -62,7 +63,7 @@ export default function NavLinkText({
   );
 }
 
-const StyledLink = styled(Link)(({ theme, classNames }) => ({
+const StyledLink = styled(Link)(({ theme }) => ({
   color: "#BCBCBC",
   marginRight: "2em",
   transition: "color 500ms",
