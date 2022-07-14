@@ -42,6 +42,7 @@ export default function MenuList() {
             toggled={checked}
             rounded
             hideOutline={false}
+            aria-label="Toggle Menu"
           />
         </HamburgerWrapper>
         <AsideSocialLinks
