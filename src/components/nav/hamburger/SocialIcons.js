@@ -1,8 +1,6 @@
-import { styled } from "@mui/material";
+import { styled, Link } from "@mui/material";
 import { List, ListItem } from "@mui/material";
-import { IconGitHub, IconLinkedin, IconTwitter, IconResume } from "../../icons";
-
-const socialMediaIcons = [IconGitHub, IconTwitter, IconLinkedin, IconResume];
+import { socialMediaIcons } from "../constants";
 
 export default function SocialIcons({ footer }) {
   return (
@@ -11,12 +9,20 @@ export default function SocialIcons({ footer }) {
         display: footer ? "flex" : null
       }}
     >
-      {socialMediaIcons.map((icon) => {
+      {socialMediaIcons.map(({ icon, url }) => {
         const key = `${icon.props.data}`;
         return (
-          <StyledSocial sx={{ marginBottom: footer ? 0 : "10px" }} key={key}>
-            {icon}
-          </StyledSocial>
+          <Link
+            href={url}
+            underline="none"
+            target="_blank"
+            rel="noopener"
+            key={key}
+          >
+            <StyledSocial sx={{ marginBottom: footer ? 0 : "10px" }}>
+              {icon}
+            </StyledSocial>
+          </Link>
         );
       })}
     </List>
