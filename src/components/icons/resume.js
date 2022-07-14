@@ -1,5 +1,3 @@
-import React from "react";
-
 const IconResume = (
   <svg
     aria-hidden="true"
