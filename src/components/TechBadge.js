@@ -1,7 +1,7 @@
-import { styled, Typography, CardMedia } from "@mui/material";
-import { Card, Avatar, CardContent } from "@mui/material";
+import { styled, CardMedia } from "@mui/material";
+import { Card, Avatar } from "@mui/material";
 
-export default function TechBadge() {
+export default function TechBadge({ Badge }) {
   return (
     <StyledCard className="badge" elevation={5}>
       <CardMedia
@@ -10,19 +10,8 @@ export default function TechBadge() {
           justifyContent: "center"
         }}
       >
-        <Avatar
-          sx={{
-            backgroundColor: "purple",
-            width: 60,
-            height: 60
-          }}
-        >
-          M
-        </Avatar>
+        {Badge && <Badge />}
       </CardMedia>
-      <CardContent>
-        <Typography>Name Here</Typography>
-      </CardContent>
     </StyledCard>
   );
 }

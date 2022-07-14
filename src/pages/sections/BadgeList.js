@@ -1,5 +1,6 @@
 import { styled, Typography, Box } from "@mui/material";
 import TechBadge from "../../components/TechBadge";
+import badgeArray from "../../components/techBadges/badgeArray";
 
 export default function BadgeList() {
   return (
@@ -14,13 +15,9 @@ export default function BadgeList() {
           justifyContent: "center"
         }}
       >
-        <TechBadge />
-        <TechBadge />
-        <TechBadge />
-        <TechBadge />
-        <TechBadge />
-        <TechBadge />
-        <TechBadge />
+        {badgeArray.map((item, index) => (
+          <TechBadge Badge={item} key={index} />
+        ))}
       </Box>
     </SectionContainer>
   );
