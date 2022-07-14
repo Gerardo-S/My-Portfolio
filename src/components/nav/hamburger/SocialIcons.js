@@ -10,19 +10,23 @@ export default function SocialIcons({ footer }) {
       }}
     >
       {socialMediaIcons.map(({ icon, url }) => {
-        const key = `${icon.props.data}`;
+        const socialLabel = `${icon.props.data}`;
         return (
-          <Link
-            href={url}
-            underline="none"
-            target="_blank"
-            rel="noopener"
-            key={key}
+          <StyledSocial
+            sx={{ marginBottom: footer ? 0 : "10px" }}
+            key={socialLabel}
           >
-            <StyledSocial sx={{ marginBottom: footer ? 0 : "10px" }}>
+            <Link
+              href={url}
+              aria-label={`visit-${socialLabel}`}
+              underline="none"
+              target="_blank"
+              rel="noopener"
+              key={socialLabel}
+            >
               {icon}
-            </StyledSocial>
-          </Link>
+            </Link>
+          </StyledSocial>
         );
       })}
     </List>
