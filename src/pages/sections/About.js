@@ -1,5 +1,9 @@
 import Image from "next/image";
 import {
+  BodyLink,
+  AboutSectionTitle
+} from "../../components/sharedStyles/styles";
+import {
   styled,
   Typography,
   Box,
@@ -9,17 +13,18 @@ import {
   Container
 } from "@mui/material";
 import ProfileImage from "../../assets/profile-image.PNG";
+import {
+  ucSanDiegoBootCamp,
+  mthreeLink,
+  LinkedIn
+} from "../../components/nav/constants";
 
-const ucSanDiegoBootCamp =
-  "https://extendedstudies.ucsd.edu/courses-and-programs/web-technologies-and-design";
-const mthreeLink = "https://www.mthree.com/about/";
-const LinkedIn = "https://www.linkedin.com/in/gerardo-a-solis/";
 export default function About() {
   return (
     <SectionContainer component="section" id="about-section">
-      <StyledSubTitle variant="h3" component="h2">
+      <AboutSectionTitle variant="h3" component="h2">
         About Me
-      </StyledSubTitle>
+      </AboutSectionTitle>
 
       <Grid container>
         <Grid item sm={12} md={6} lg={8}>
@@ -28,27 +33,28 @@ export default function About() {
             something out of code. My interest in programming started back in
             2019 when I was automating a process for the heat treat department
             at a bearing manufacturing plant. Seeing the tool I created
-            benefiting the company and my coworkers excited me. From that day I
-            have completed a full stack web development boot camp at{" "}
-            <StyledLink
+            benefiting the company and my coworkers excited me. From that day
+            onwards I have completed a full stack web development boot camp at{" "}
+            <BodyLink
               href={ucSanDiegoBootCamp}
               underline="none"
               target="_blank"
               rel="noopener"
             >
               UC San Diego extension
-            </StyledLink>
+            </BodyLink>
             , completed a full paid training program from{" "}
-            <StyledLink
+            <BodyLink
               href={mthreeLink}
               underline="none"
               target="_blank"
               rel="noopener"
             >
               mthree
-            </StyledLink>
+            </BodyLink>
             , a training partner for Wiley a global leader in research and
-            education.
+            education, and have worked with clients integrating custom features
+            to their websites.
           </Typography>
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={4}>
@@ -76,32 +82,7 @@ export default function About() {
   );
 }
 
-const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
-  position: "relative",
-  paddingBottom: "2rem",
-  "&::after": {
-    content: `""`,
-    position: "relative",
-    display: "block",
-    [breakpoints.down("md")]: {
-      width: "150px"
-    },
-    [breakpoints.up("sm")]: {
-      width: "310px"
-    },
-    [breakpoints.up("md")]: {
-      width: "480px"
-    },
-    height: 1,
-    borderRadius: 50,
-    top: "-20px",
-    right: "-160px",
-    background: "#BCBCBC",
-    boxShadow: `0 0 .3em 0.1em white`
-  }
-}));
-
-const SectionContainer = styled(Box)(({ theme }) => ({
+const SectionContainer = styled(Box)(() => ({
   padding: "190px 0 250px "
 }));
 
@@ -145,29 +126,7 @@ const OutlineContainer = styled(Container)(() => ({
   }
 }));
 
-const StyledAvatar = styled(Avatar)(({ theme }) => ({
+const StyledAvatar = styled(Avatar)(() => ({
   width: 200,
   height: 200
-}));
-
-const StyledLink = styled(Link)(({ theme, classNames, ...props }) => ({
-  color: theme.palette.secondary.main,
-  position: "relative",
-  "&::after": {
-    content: `""`,
-    position: "absolute",
-    width: "100%",
-    height: 1,
-    borderRadius: 50,
-    borderRadius: "4px",
-    backgroundColor: theme.palette.secondary.main,
-    bottom: 0,
-    left: 0,
-    transformOrigin: "center",
-    transform: "scaleX(0)",
-    transition: "transform .4s ease-in-out"
-  },
-  "&:hover::after": {
-    transform: "scaleX(1)"
-  }
 }));

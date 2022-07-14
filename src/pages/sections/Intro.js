@@ -3,17 +3,7 @@ import { styled, useTheme, useMediaQuery } from "@mui/material";
 import { Typography, Box, Container, Link } from "@mui/material";
 import { animated, useTrail } from "react-spring";
 import AnimatedPageButton from "../../components/buttons/AnimatedPageButton";
-
-const resumeLink =
-  "https://drive.google.com/file/d/1hMWhAVn3mAEYwy66EoIZb7kCzXpQXyzR/view?usp=sharing";
-const introText = [
-  { text: "Hello there,", variant: "h1" },
-  { text: "I'm Gerardo Solis.", variant: "h2" },
-  {
-    text: "  I'm an engineer based in San Diego, California. I specialize in front  end web development.",
-    variant: "p"
-  }
-];
+import { resumeLink, introText } from "../../components/nav/constants";
 
 export default function Intro() {
   const [pageLoadAnimation, setPageLoadAnimation] = useState(false);

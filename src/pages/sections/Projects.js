@@ -1,12 +1,12 @@
-import { styled, Typography, Box, Grid } from "@mui/material";
+import { styled, Box, Grid } from "@mui/material";
 import ProjectCard from "../../components/ProjectCard";
-
+import { ProjectsSectionTitle } from "../../components/sharedStyles/styles";
 export default function Projects({ repos }) {
   return (
     <SectionContainer component="section" id="projects-section">
-      <StyledSubTitle variant="h3" component="h2">
+      <ProjectsSectionTitle variant="h3" component="h2">
         Some of My Work
-      </StyledSubTitle>
+      </ProjectsSectionTitle>
       <Grid container spacing={2}>
         {repos &&
           repos.map((cardDetails) => (
@@ -24,31 +24,6 @@ export default function Projects({ repos }) {
     </SectionContainer>
   );
 }
-
-const StyledSubTitle = styled(Typography)(({ theme: { breakpoints } }) => ({
-  position: "relative",
-  paddingBottom: "2rem",
-  "&::after": {
-    content: `""`,
-    position: "relative",
-    display: "block",
-    [breakpoints.down("md")]: {
-      width: "45px"
-    },
-    [breakpoints.up("sm")]: {
-      width: "200px"
-    },
-    [breakpoints.up("md")]: {
-      width: "360px"
-    },
-    height: 1,
-    borderRadius: 50,
-    top: "-20px",
-    right: "-275px",
-    background: "#BCBCBC",
-    boxShadow: `0 0 .3em 0.1em white`
-  }
-}));
 
 const SectionContainer = styled(Box)(({ theme }) => ({
   padding: "25px 0 200px ",
