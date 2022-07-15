@@ -21,16 +21,17 @@ export default function MyApp(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <meta property="og:url" content="https://www.gerardosolis.dev/" />
+        <meta property="og:title" content="Gerardo Solis | Software Engineer" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Gerardo's Personal Website" />
+        <meta property="og:url" content="https://www.gerardosolis.dev/" />
         <meta
           property="og:image"
           content="https://media-exp2.licdn.com/dms/image/D5635AQEwRngcTBty7Q/profile-framedphoto-shrink_800_800/0/1642548646639?e=1658361600&v=beta&t=SIiluu6kzQ6m3DWJzomve0l2sP2EeQybKOGZ7QbTPEY"
         />
-        <meta name="description" content="My Portfolio" />
-
-        <title>Gerardo Solis</title>
+        <meta
+          name="description"
+          content="Hello, I am a web developer based in San Diego, CA. I specialize in frontend development and this is my personal website which includes my work portfolio."
+        />
 
         <link
           rel="apple-touch-icon"
