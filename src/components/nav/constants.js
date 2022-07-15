@@ -13,7 +13,7 @@ const navLinks = {
   ]
 };
 const resumeLink =
-  "https://drive.google.com/file/d/1hMWhAVn3mAEYwy66EoIZb7kCzXpQXyzR/view?usp=sharing";
+  "https://drive.google.com/file/d/1V6UWTUeKaO4JbXjwHRS7-66yjmSkVrar/view?usp=sharing";
 const introText = [
   { text: "Hello there,", variant: "h1" },
   { text: "I'm Gerardo Solis.", variant: "h2" },
