@@ -63,11 +63,7 @@ export default function About() {
               <StyledAvatar>
                 <Image
                   src={ProfileImage}
-                  blurDataURL={
-                    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNME2Q6AgACnQE/KbNfPwAAAABJRU5ErkJggg=="
-                  }
                   objectFit="cover"
-                  placeholder="blur"
                   alt="place holder"
                   height={310}
                   width={200}
