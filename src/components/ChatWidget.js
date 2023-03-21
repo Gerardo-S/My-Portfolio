@@ -102,8 +102,8 @@ const ChatWidget = () => {
   return (
     <Widget
       handleNewUserMessage={handleNewUserMessage}
-      title="Chat with Gerardo"
-      subtitle="Ask me anything about my skills and experience"
+      title="Hi! I am Clank."
+      subtitle="Ask me anything about Gerardo's work experience."
     />
   );
 };
