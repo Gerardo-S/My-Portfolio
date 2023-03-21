@@ -1,5 +1,5 @@
 import { Configuration, OpenAIApi } from "openai";
-import jobContent from "../../jobContent";
+import workHistory from "../../workHistory";
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY
@@ -8,7 +8,7 @@ const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
   const { message } = req.body;
-  const workHistoryContext = jobContent
+  const workHistoryContext = workHistory
     .map(
       (job) => `
         Job ${job.location}:

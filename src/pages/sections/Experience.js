@@ -1,6 +1,6 @@
 import { styled, Box } from "@mui/material";
 import JobItem from "../../components/workExperience/JobItem";
-import JobContent from "../../jobContent";
+import workHistory from "../../workHistory";
 import { ExperienceSectionTitle } from "../../components/sharedStyles/styles";
 export default function Experience() {
   return (
@@ -8,7 +8,7 @@ export default function Experience() {
       <ExperienceSectionTitle variant="h3" component="h2">
         Experience
       </ExperienceSectionTitle>
-      {JobContent.map((jobExp) => (
+      {workHistory.map((jobExp) => (
         <JobItem key={jobExp.location} content={jobExp} />
       ))}
     </SectionContainer>
