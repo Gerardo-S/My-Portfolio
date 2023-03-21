@@ -1,10 +1,16 @@
-import React, { useState } from "react";
-import { Widget, addResponseMessage, deleteMessages } from "react-chat-widget";
+import React, { useState, useEffect, useCallback } from "react";
+import {
+  Widget,
+  addResponseMessage,
+  toggleInputDisabled,
+  toggleMsgLoader
+} from "react-chat-widget";
 import "react-chat-widget/lib/styles.css";
 import { debounce } from "lodash";
 import { mutate } from "swr";
+
 const DAILY_TOKEN_LIMIT = 5000;
-const REQUESTS_PER_MINUTE = 10;
+const REQUESTS_PER_MINUTE = 8;
 
 const postFetcher = async (url, options) => {
   const response = await fetch(url, options);
@@ -19,11 +25,23 @@ const postFetcher = async (url, options) => {
 
 const ChatWidget = () => {
   const [tokensUsed, setTokensUsed] = useState(0);
-  const [requestsMade, setRequestsMade] = useState(0);
+  const [requestsThisMinute, setRequestsThisMinute] = useState(0);
 
+  // Increment requestsMade and requestsThisMinute counters
+  const updateRequestCount = useCallback(() => {
+    setRequestsThisMinute((prev) => prev + 1);
+  }, []);
+  // Reset requestsThisMinute counter every 60 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRequestsThisMinute(0);
+    }, 60000);
+
+    return () => clearInterval(interval);
+  }, []);
   const debouncedFetchResponse = debounce(async (message) => {
-    addResponseMessage("Loading... Please wait.", "loading");
-    setRequestsMade((prev) => prev + 1);
+    toggleMsgLoader();
+    updateRequestCount();
     try {
       const url = "/api/chatGPTAPI";
       const options = {
@@ -34,7 +52,6 @@ const ChatWidget = () => {
         body: JSON.stringify({ message })
       };
       const data = await mutate(url, () => postFetcher(url, options));
-      deleteMessages(1, "loading");
       if (data.error) {
         addResponseMessage(`Error: ${data.error.message}`);
       } else if (data.choices && data.choices.length > 0) {
@@ -46,10 +63,13 @@ const ChatWidget = () => {
         } else {
           setTokensUsed((prev) => prev + tokensUsed);
           addResponseMessage(data.choices[0].message.content.trim());
+          toggleInputDisabled();
+          toggleMsgLoader();
         }
       }
     } catch (error) {
-      deleteMessages("loading");
+      toggleInputDisabled();
+      toggleMsgLoader();
       addResponseMessage(
         "An error occurred while processing your request. Please try again later."
       );
@@ -57,16 +77,18 @@ const ChatWidget = () => {
   }, 1000);
 
   const handleNewUserMessage = async (message) => {
+    toggleInputDisabled();
     if (tokensUsed > DAILY_TOKEN_LIMIT) {
       addResponseMessage(
         "Daily token limit reached. Please try again tomorrow"
       );
       return;
     }
-    if (requestsMade >= REQUESTS_PER_MINUTE) {
+    if (requestsThisMinute >= REQUESTS_PER_MINUTE) {
       addResponseMessage(
         "Request limit reached. Please wait a moment and try again."
       );
+      return;
     }
     if (message.length <= 80) {
       debouncedFetchResponse(message);
