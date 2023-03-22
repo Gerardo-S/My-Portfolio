@@ -2,19 +2,23 @@ import WileyImage from "./assets/jobThumbnail-image/wiley-edge.jpg";
 import RBCImage from "./assets/jobThumbnail-image/rbc.jpg";
 import GLogo from "./assets/jobThumbnail-image/G-Logo.png";
 
-const jobContent = [
+const WorkHistory = [
   {
     image: GLogo,
-    position: "Frontend Developer",
-    location: "Freelance",
-    url: " https://www.gerardosolis.dev/",
-    period: { start: "Nov 2020", end: "Present" },
-    technologies: ["Next.js •", "TypeScript •", "React"],
+    position: "Contract Web Developer",
+    location: "Alianza Coachella Valley",
+    url: "alianzacv.org",
+    period: { start: "Nov 2021", end: "Present" },
+    technologies: ["Next.js •", "TypeScript •", "Contentful •", "React"],
     description: [
-      "Create landing pages for clients such as personal portfolios and CMS integrations, primarily built using Next.js as frontend framework",
-      "Communicate with clients retrieving webpage criteria and integrating them as requested."
+      "Implemented and developed dashboard features using Next.js showcasing community science gathered data on the Salton Sea",
+      "Utilized Next.js and Material-UI to create responsive landing pages for client",
+      "Integrated Contentful CMS and provided technical support",
+      "Pair programmed with other developers and participated in code reviews",
+      "Appended additional water/air sensors and displayed measured output"
     ]
   },
+
   {
     image: WileyImage,
     position: "Fullstack Developer",
@@ -45,9 +49,10 @@ const jobContent = [
     description: [
       "Develope and maintain procedures for heat treating processes and metallurgical evaluation",
       "Improved automation cell production output by implementing Lean Six Sigma principles",
-      "Resolved interdepartmental conflicts by communicating issues to team of manufacturing engineers, design engineers, operators, inspectors, and customers on a daily basis"
+      "Resolved interdepartmental conflicts by communicating issues to team of manufacturing engineers, design engineers, operators, inspectors, and customers on a daily basis",
+      "Reviewed customer drawings and manufacturing planners to ensure they meet specifications and conform to manufacturing principles"
     ]
   }
 ];
 
-export default jobContent;
+export default WorkHistory;

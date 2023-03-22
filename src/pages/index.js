@@ -8,7 +8,11 @@ import Experience from "./sections/Experience";
 import Projects from "./sections/Projects";
 import getRepos from "../lib/api/gitHubAPI";
 import projectImages from "../components/assetImages";
+import dynamic from "next/dynamic";
 
+const ChatWidget = dynamic(() => import("../components/ChatWidget"), {
+  ssr: false
+});
 const reposToDisplay = [
   "sset-website",
   "pokeBase",
@@ -40,6 +44,7 @@ export default function Home({ repos }) {
       >
         <Intro />
         <About />
+        <ChatWidget />
         <Projects repos={filteredRepos} />
         <Experience />
         <BadgeList />
